@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!--ICONO PARA PESTAÑA-->
+    <link rel="shortcut icon" href="SMJPG.jpg">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testing V2</title>
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- HEADER -->
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #ad97d1;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <h3 style="color: #640af5; margin-left: 100%;">ORGANIZACION TERRITORIAL DE MEXICO</h3>
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+    <!-- HEADER -->
+
+    <link rel="stylesheet" href="css/testingCSS.css" />
+    <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tmpl.min.js"></script>
+    <script type="text/javascript" src="js/testingFunc.js"></script>
+    <script type="text/javascript">
+        var provincias = [
+            { 'region': 'Aguascalientes', 'name': 'Aguascalientes', 'superficie': 5618, 'inhabitants': 1425607, 'DensidadPobl': 237.23, 'OrdIngrFed': 24, 'DateIngrFed': '5 de febrero de 1857', },
+            { 'region': 'Baja California', 'name': 'Mexicalli', 'superficie': 71446, 'inhabitants': 3769020, 'DensidadPobl': 50.86, 'OrdIngrFed': 29, 'DateIngrFed': '16 de enero de 1952', },
+            { 'region': 'Baja California Sur', 'name': 'La Paz', 'superficie': 73922, 'inhabitants': 798447, 'DensidadPobl': 8.62, 'OrdIngrFed': 30, 'DateIngrFed': '8 de octubre de 1974', },
+            { 'region': 'Campeche', 'name': 'San Francisco de Campeche', 'superficie': 57924, 'inhabitants': 928363, 'DensidadPobl': 14.20, 'OrdIngrFed': 25, 'DateIngrFed': '29 de abril de 1863', },
+            { 'region': 'Chiapas', 'name': 'Tuxtla Gutiérrez', 'superficie': 73289, 'inhabitants': 5543828, 'DensidadPobl': 65.45, 'OrdIngrFed': 19, 'DateIngrFed': '14 de septiembre de 1824', },
+            { 'region': 'Chihuahua', 'name': 'Chihuahua', 'superficie': 247455, 'inhabitants': 3741869, 'DensidadPobl': 13.77, 'OrdIngrFed': 18, 'DateIngrFed': '6 de julio de 1824', },
+            { 'region': 'Ciudad de México', 'name': '-', 'superficie': 1485, 'inhabitants': 9209944, 'DensidadPobl': 5960.27, 'OrdIngrFed': '-', 'DateIngrFed': '-', },
+            { 'region': 'Coahuila de Zaragoza', 'name': 'Saltillo', 'superficie': 151563, 'inhabitants': 3146771, 'DensidadPobl': 20.16, 'OrdIngrFed': 16, 'DateIngrFed': '7 de mayo de 1824', },
+            { 'region': 'Colima', 'name': 'Colima', 'superficie': 5625, 'inhabitants': 731391, 'DensidadPobl': 115.65, 'OrdIngrFed': 23, 'DateIngrFed': '9 de diciembre de 1856', },
+            { 'region': 'Durango', 'name': 'Victoria de Durango', 'superficie': 123451, 'inhabitants': 1832650, 'DensidadPobl': 13.23, 'OrdIngrFed': 17, 'DateIngrFed': '22 de mayo de 1824', },
+            { 'region': 'Guanajuato', 'name': 'Guanajuato', 'superficie': 30608, 'inhabitants': 6166934, 'DensidadPobl': 179.25, 'OrdIngrFed': 2, 'DateIngrFed': '20 de diciembre de 1823	', },
+            { 'region': 'Guerrero', 'name': 'Chilpancingo de los Bravo', 'superficie': 63621, 'inhabitants': 3540685, 'DensidadPobl': 53.26, 'OrdIngrFed': 21, 'DateIngrFed': '27 de octubre de 1849', },
+            { 'region': 'Hidalgo', 'name': 'Pachuca de Soto', 'superficie': 20813, 'inhabitants': 3082841, 'DensidadPobl': 128.05, 'OrdIngrFed': 26, 'DateIngrFed': '16 de enero de 1869', },
+            { 'region': 'Jalisco', 'name': 'Guadalajara', 'superficie': 78599, 'inhabitants': 8348151, 'DensidadPobl': 93.52, 'OrdIngrFed': 9, 'DateIngrFed': '23 de diciembre de 1823', },
+            { 'region': 'Estado de México', 'name': 'Toluca de Lerdo', 'superficie': 22357, 'inhabitants': 16992418, 'DensidadPobl': 678.80, 'OrdIngrFed': 1, 'DateIngrFed': '20 de diciembre de 1823	', },
+            { 'region': 'Michoacán de Ocampo', 'name': 'Morelia', 'superficie': 58643, 'inhabitants': 4748846, 'DensidadPobl': 74.20, 'OrdIngrFed': 5, 'DateIngrFed': '22 de diciembre de 1823', },
+            { 'region': 'Morelos', 'name': 'Cuernavaca', 'superficie': 4893, 'inhabitants': 1971520, 'DensidadPobl': 363.22, 'OrdIngrFed': 27, 'DateIngrFed': '17 de abril de 1869', },
+            { 'region': 'Nayarit', 'name': 'Tepic', 'superficie': 27815, 'inhabitants': 1235456, 'DensidadPobl': 39.01, 'OrdIngrFed': 28, 'DateIngrFed': '26 de enero de 1917', },
+            { 'region': 'Nuevo León', 'name': 'Monterrey', 'superficie': 64220, 'inhabitants': 5784442, 'DensidadPobl': 72.46, 'OrdIngrFed': 15, 'DateIngrFed': '7 de mayo de 1824', },
+            { 'region': 'Oaxaca', 'name': 'Oaxaca de Juárez', 'superficie': 93793, 'inhabitants': 4132148, 'DensidadPobl': 40.54, 'OrdIngrFed': 3, 'DateIngrFed': '21 de diciembre de 1823', },
+            { 'region': 'Puebla', 'name': 'Puebla de Zaragoza', 'superficie': 34290, 'inhabitants': 6583278, 'DensidadPobl': 168.56, 'OrdIngrFed': 4, 'DateIngrFed': '21 de diciembre de 1823', },
+            { 'region': 'Querétaro', 'name': 'Santiago de Querétaro', 'superficie': 11684, 'inhabitants': 2368467, 'DensidadPobl': 168.56, 'OrdIngrFed': 11, 'DateIngrFed': '23 de diciembre de 1823	', },
+            { 'region': 'Quintana Roo', 'name': 'Chetumal', 'superficie': 'Ushuaia', 'superficie': 42361, 'inhabitants': 1857985, 'DensidadPobl': 31.29, 'OrdIngrFed': 31, 'DateIngrFed': '8 de octubre de 1974', },
+            { 'region': 'San Luis Potosí', 'name': 'San Luis Potosí', 'superficie': 60983, 'inhabitants': 2822255, 'DensidadPobl': 42.40, 'OrdIngrFed': 6, 'DateIngrFed': '22 de diciembre de 1823', },
+            { 'region': 'Sinaloa', 'name': 'Culiacán Rosales', 'superficie': 57377, 'inhabitants': 3026943, 'DensidadPobl': 48.24, 'OrdIngrFed': 20, 'DateIngrFed': '14 de octubre de 1830', },
+            { 'region': 'Sonora', 'name': 'Hermosillo', 'superficie': 179503, 'inhabitants': 2944840, 'DensidadPobl': 14.83, 'OrdIngrFed': 12, 'DateIngrFed': '10 de enero de 1824', },
+            { 'region': 'Tabasco', 'name': 'Villahermosa', 'superficie': 24738, 'inhabitants': 2402598, 'DensidadPobl': 90.49, 'OrdIngrFed': 13, 'DateIngrFed': '7 de febrero de 1824', },
+            { 'region': 'Tamaulipas', 'name': 'Ciudad Victoria', 'superficie': 80175, 'inhabitants': 3527735, 'DensidadPobl': 40.77, 'OrdIngrFed': 14, 'DateIngrFed': '7 de febrero de 1824', },
+            { 'region': 'Tlaxcala', 'name': 'Tlaxcala de Xicohténcatl', 'superficie': 4016, 'inhabitants': 1342977, 'DensidadPobl': 291.32, 'OrdIngrFed': 22, 'DateIngrFed': '9 de diciembre de 1856', },
+            { 'region': 'Veracruz de Ignacio de la Llave', 'name': 'Xalapa-Enríquez', 'superficie': 71820, 'inhabitants': 8062579, 'DensidadPobl': 106.42, 'OrdIngrFed': 7, 'DateIngrFed': '22 de diciembre de 1823', },
+            { 'region': 'Yucatán', 'name': 'Mérida', 'superficie': 39612, 'inhabitants': 2320898, 'DensidadPobl': 49.37, 'OrdIngrFed': 8, 'DateIngrFed': '23 de diciembre de 1823', },
+            { 'region': 'Zacatecas', 'name': 'Zacatecas', 'superficie': 75539, 'inhabitants': 1622138, 'DensidadPobl': 19.73, 'OrdIngrFed': 10, 'DateIngrFed': '23 de diciembre de 1823	', },
+        ];
+        /*
+        
+        */
+
+        function search_data() {
+            var data_to_search = new RegExp(".*" + $("#input")[0].value + ".*", "i");
+            var region_to_search = $("#region").val();
+            var result = [];
+            $(provincias).each(function () {
+                if (data_to_search.exec(this.name) && (region_to_search == "Todas" || region_to_search == this.region)) {
+                    result.push(this);
+                }
+            });
+            return result;
+        }
+
+        function load_regions() {
+            $("<option value='Todas'>Todas</option>").appendTo("#region");
+            var visited = [];
+            $(provincias).each(function () {
+                var region = this.region;
+                if (visited.indexOf(region) == -1) {
+                    visited.push(region);
+                }
+            });
+            visited = visited.sort();
+            $(visited).each(function () {
+                $.tmpl("<option value='${region}'>${region}</option>'", { "region": this }).appendTo("#region");
+            });
+        }
+
+        function load_data(data) {
+            $("tbody tr", "#data").each(function () { $(this).remove() });
+            $(data).each(function () {
+                $.tmpl("<tr><td>${region}</td><td>${name}</td><td>${superficie}</td><td>${inhabitants}</td><td>${DensidadPobl}</td><td>${OrdIngrFed}</td><td>${DateIngrFed}</td></tr>", this).appendTo("#data");
+            });
+            if ($(data).size() == 0) {
+                $("<tr><td colspan='7'>No hay alguna entidad que coincida con lo buscado</td></tr>").appendTo("#data");
+            }
+        }
+
+        $(document).ready(function () {
+            load_regions();
+            load_data(provincias);
+            $("#input").keyup(function (event) {
+                if (event.keyCode != 13) {
+                    load_data(search_data());
+                }
+            });
+            $("#filters").submit(function () {
+                load_data(search_data());
+                return false;
+            });
+        });
+
+        //Función validadar numeros
+        function soloLetras(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+            especiales = [8, 37, 39, 46];
+
+            tecla_especial = false
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
+        }
+
+        function limpia() {
+            var val = document.getElementById("input").value;
+            var tam = val.length;
+            for (i = 0; i < tam; i++) {
+                if (!isNaN(val[i]))
+                    document.getElementById("input").value = '';
+            }
+        }
+
+    </script>
+
+</head>
+
+<body style="background-color: #ad97d1;">
+
+    <br>
+    <h5 style="text-align: center;">Buscador de datos de tu entidad federativa</h5>
+    <br>
+    <!-- <p style="text-align: center;">Buscador de datos de tu entidad federativa</p> -->
+    <div id="filter-wrapper">
+        <form id="filters" action="">
+            <div class="form-elem" style="text-align: center;">
+                <label for="region">Entidad</label>
+                <select style="height: 25px; width: 230px;" aria-label=".form-select-sm example" id="region"
+                    onchange="load_data(search_data())"></select>
+                <label for="input" style="padding-left: 10%;">Capital</label>
+                <input style="height: 25px; width: 230px;" id="input" class="input" type="text" onkeypress="return soloLetras(event)" onblur="limpia()"/>
+            </div>
+            <br>
+            <!-- <div class="form-elem">
+		   
+		</div> -->
+        </form>
+    </div>
+    <div id="data-wrapper">
+        <table id="data" style="margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>Entidad <a href='' name='region' order='asc' onclick="return sort_by($(this))">&uArr;</a></th>
+                    <th>Capital <a href='' name='name' order='asc' onclick="return sort_by($(this))">&uArr;</a></th>
+                    <th>Superficie Km<sup>2</sup> <a href='' name='superficie' order='asc'
+                            onclick="return sort_by($(this))">&uArr;</a></th>
+                    <th>Población <a href='' name='inhabitants' order='asc'
+                            onclick="return sort_by($(this))">&uArr;</a></th>
+                    <th>Densidad de población <a href='' name='DensidadPobl' order='asc'
+                            onclick="return sort_by($(this))">&uArr;</a></th>
+                    <th>Orden de ingreso a la federación <a href='' name='OrdIngrFed' order='asc'
+                            onclick="return sort_by($(this))">&uArr;</a></th>
+                    <th>Fecha de ingreso a la federación </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <!-- <a href='' name='DateIngrFed' order='asc' onclick="return sort_by($(this),to_num)">&uArr;</a> -->
+    </div>
+    <form class="d-flex">
+        <a class="navbar-brand" href="#"><img src="SM.png" width="100px" height="50px" alt=""></a>
+    </form>
+
+    <br>
+
+    <div class="form-elem" style="text-align: center;">
+        <form>
+            <a href="Top5mas.html" style="padding-right: 100px;">
+                <input type="button" class="boron" value="Top 5 más pobladas">
+            </a>
+            <a href="Top5menos.html" style="padding-left: 100px;">
+                <input type="button" class="boron" value="Top 5 menos pobladas">
+            </a>
+        </form>
+    </div>
+
+    <br>
+
+</body>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</html>
